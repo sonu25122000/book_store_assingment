@@ -59,4 +59,29 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
+// get all book which are added by users 
+userRouter.get("/cart_product", auth, async (req, res) => {
+    const userID = req.body.userID;
+    try {
+      const cart = await CartProductsModel.find({ userID }).populate("bookID");
+      res.send(cart);
+    } catch (err) {
+      res.send({
+        msg: "somthing went wrong! cannot Get cart Products",
+        error: err.message,
+      });
+    }
+  });
+  
+  // add to cart by users
+  userRouter.post("/cart_product/add/:id", auth, async (req, res) => {
+    const bookID = req.params.id;
+    try {
+      const cart = new CartProductsModel({ ...req.body, bookID, qty: 1 });
+      await cart.save();
+      res.send({ msg: "Product added to cart" });
+    } catch (err) {
+      res.send({ msg: "somthing went wrong! cannot add", error: err.message });
+    }
+  });
 module.exports = userRouter;
