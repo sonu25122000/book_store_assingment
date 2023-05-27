@@ -1,3 +1,4 @@
+<!-- for locally -->
 1. get the cart product of a particular user -> http://localhost:4500/user/cart_product
 
 2. add product to the user cart -> http://localhost:4500/user/cart_product/add/:id(id=product id)
@@ -19,3 +20,4 @@
 10. delete user cart data =http://localhost:4500/user/cart_product/delete/id (id= cartproduct id)
 
 11. add the book the the database -> http://localhost:4500/book/add
+
