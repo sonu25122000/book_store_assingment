@@ -5,7 +5,7 @@ import { Allroute } from "./pages/allroute";
 function App() {
   return (
     <div>
-      bookstore
+      <Navbar/>
     </div>
   );
 }
