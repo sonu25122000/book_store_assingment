@@ -58,7 +58,7 @@ All  book is available here with sort. details.
 
 # 4 Book_Details Page
 
-![book_details] (https://i.postimg.cc/TPYL0Gd1/Screenshot-2023-05-28-at-12-29-45-PM.png)
+![book_details] (https://i.postimg.cc/TPYL0Gd1/Screenshot-2023-05-28-at-12-29-45-PM.png) 
 
 In this page you can Add to product button if you are already logged in other you will see login button.
 
