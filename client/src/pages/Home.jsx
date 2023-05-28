@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import {
   Box,
   Heading,
@@ -65,8 +64,9 @@ const Home = () => {
           md: "repeat(2, 1fr)",
           base: "repeat(1, 1fr)",
         }}
-        gap="20px 20px"
-        m="30px"
+        w={"90%"}
+        m={"auto"}
+        mt={"2%"}
       >
         {book.length === 0 ? (
           <Text
@@ -80,82 +80,86 @@ const Home = () => {
         ) : (
           book?.map((item, index) => {
             return (
-              <Box
-                key={index}
-                role={"group"}
-                p={6}
-                maxW={"330px"}
-                w={"full"}
-                boxShadow={"2xl"}
-                rounded={"lg"}
-                pos={"relative"}
-                zIndex={1}
-              >
+              <Link to={`/bookdetails/${item._id}`}>
                 <Box
+                  key={index}
+                  role={"group"}
+                  p={4}
+                  maxW={"330px"}
+                  w={"full"}
+                  boxShadow={"2xl"}
                   rounded={"lg"}
                   pos={"relative"}
-                  _after={{
-                    transition: "all .3s ease",
-                    content: '""',
-                    w: "full",
-                    h: "full",
-                    pos: "absolute",
-                    top: 5,
-                    left: 0,
-                    filter: "blur(15px)",
-                    zIndex: -1,
-                  }}
-                  _groupHover={{
-                    _after: {
-                      filter: "blur(20px)",
-                    },
-                  }}
+                  zIndex={1}
                 >
-                  <Image
+                  <Box
                     rounded={"lg"}
-                    height={230}
-                    pl={"45px"}
-                    objectFit={"cover"}
-                    src={item.book_image}
-                  />
-                </Box>
-                <Stack pt={10}>
-                  <Heading
-                    fontSize={"2xl"}
-                    fontFamily={"body"}
-                    fontWeight={500}
-                  >
-                    {item.book_name}
-                  </Heading>
-                  <Text color={"gray.600"} fontSize={"sm"}>
-                    <span style={{ fontWeight: "bold" }}>Written by </span>
-                    {item.author_name}
-                  </Text>
-                  <Stack>
-                    <Text color={"gray.600"}>
-                      <span style={{ fontWeight: "bold" }}>Published in </span>
-                      {item.published}
-                    </Text>
-                    <Text fontWeight={800} fontSize={"xl"}>
-                      ${item.price}
-                    </Text>
-                  </Stack>
-                </Stack>
-                <Link to={`/bookdetails/${item._id}`}>
-                  <Button
-                    w={"100%"}
-                    size={"md"}
-                    borderRadius="5px"
-                    bg={"#ff6f61"}
-                    _hover={{
-                      bg: "#fd7c70",
+                    pos={"relative"}
+                    _after={{
+                      transition: "all .3s ease",
+                      content: '""',
+                      w: "full",
+                      h: "full",
+                      pos: "absolute",
+                      top: 5,
+                      left: 0,
+                      filter: "blur(15px)",
+                      zIndex: -1,
                     }}
-                    color="#fff"
+                    _groupHover={{
+                      _after: {
+                        filter: "blur(20px)",
+                      },
+                    }}
                   >
-                    See more details
-                  </Button>
-                </Link>
-              </Box>
+                    <Image
+                      rounded={"lg"}
+                      height={230}
+                      pl={"45px"}
+                      objectFit={"cover"}
+                      src={item.book_image}
+                    />
+                  </Box>
+                  <Stack pt={10}>
+                    <Heading
+                      fontSize={"2xl"}
+                      fontFamily={"body"}
+                      fontWeight={500}
+                    >
+                      {item.book_name}
+                    </Heading>
+                    <Text color={"gray.600"} fontSize={"sm"}>
+                      <span style={{ fontWeight: "bold" }}>Written by </span>
+                      {item.author_name}
+                    </Text>
+                    <Stack>
+                      <Text color={"gray.600"}>
+                        <span style={{ fontWeight: "bold" }}>
+                          Published in{" "}
+                        </span>
+                        {item.published}
+                      </Text>
+                      <Text fontWeight={800} fontSize={"xl"}>
+                        ${item.price}
+                      </Text>
+                    </Stack>
+                  </Stack>
+                  <Link to={`/bookdetails/${item._id}`}>
+                    <Button
+                      w={"100%"}
+                      size={"md"}
+                      borderRadius="5px"
+                      bg={"#ff6f61"}
+                      _hover={{
+                        bg: "#fd7c70",
+                      }}
+                      color="#fff"
+                    >
+                      See more details
+                    </Button>
+                  </Link>
+                </Box>
+              </Link>
             );
           })
         )}

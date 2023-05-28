@@ -26,8 +26,8 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const booktoken = localStorage.getItem("booktoken");
-  // console.log(booktoken);
   const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("booktoken");
   };
